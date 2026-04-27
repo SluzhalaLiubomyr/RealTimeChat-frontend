@@ -1,0 +1,24 @@
+<div class="chat">
+  <div class="messages">
+    <div *ngFor="let m of messages$ | async" [ngClass]="m.sentiment?.toLowerCase()">
+      <b>{{ m.user }}:</b> {{ m.message }}
+      <small>
+        {{ m.createdAt | date: 'short' }}
+      </small>
+      <span>
+        {{
+          m.sentiment?.toLowerCase() === 'positive'
+            ? '😊'
+            : m.sentiment?.toLowerCase() === 'negative'
+              ? '😡'
+              : '😐'
+        }}
+      </span>
+    </div>
+  </div>
+
+  <input [(ngModel)]="user" placeholder="Name" />
+  <input [(ngModel)]="message" placeholder="Message" />
+
+  <button (click)="send()">Send</button>
+</div>
