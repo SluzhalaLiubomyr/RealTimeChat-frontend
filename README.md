@@ -16,4 +16,5 @@ Frontend for real-time chat application using Angular + SignalR.
 ## Run
 
 npm install
+
 ng serve
